@@ -1,111 +1,55 @@
 <html>
-<head>
-<meta charset="UTF-8">
-<style>
-input[type=text], select {
-  width: 60%;
-  padding: 8px 15px;
-  margin: 8px 10px;
-  display: inline-block;
-  border: 5px solid black;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size:15px;
-}
-
-#submit {
-  width: 100px;
-  background-color: red;
-  color: white;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size:15px;
-  font-family:verdana;
-  font-weight: bold;
-}
-
-#submit:hover {
-  background-color: #d61515;
-}
-#save {
-  width: 200px;
-  background-color: black;
-  color: white;
-  margin: 8px 350px;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size:15px;
-  font-family:verdana;
-  float:left;
-  font-weight: bold;
-}
-#save:hover {
-  background-color: #082a63;
-}
-hr {
-  width: 100%;
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  border-width: 0px;
-  color: red;
-  background-color: red;
-  height:1px
-}
-label {
-  line-height: 1.4;
-  font-family:verdana;
-  cursor: pointer;
-  font-weight: bold;
-}
-input[type=radio] {
-  cursor: pointer;
-}
-table {
-  width: 550px;
-}
-th, td {
-  padding: 8px;
-  text-align: left;
-  font-size:17px;
-}
-</style>
-<title> Adreses meklētājs </title>
-</head>
-<body>
- <form id="myForm">
-	<input type="text" name="address" id="myText" value="Ievadiet adresi...">
-	<button onclick="myFunction()" id="submit">Submit</button>
- </form>
-<hr>
-<br>
-<form>
-  <table>
-  <tr>
-  <td><input type="radio" id="r_add" name="saver" value="r_add">
-  <label for="r_add">Adrese: </td><td><span id="demo">XXXXXXXXXXX</span></label></td>
-  </tr><tr>
-  <td><input type="radio" id="r_add_code" name="saver" value="r_add_code">
-  <label for="r_add_code">Adreses kods: </td><td><span>XXXXXXXXXXX</span></td></label>
-  </tr><tr>
-  <td><input type="radio" id="r_gps" name="saver" value="r_gps">
-  <label for="r_gps">GPS koordinātes: </td><td><span>XXXXXXXXXXX</span></td></label>
-  </tr><tr>
-  <td><input type="radio" id="r_obj" name="saver" value="r_obj">
-  <label for="r_obj">Objekts/objekta daļa: </td><td><span>XXXXXXXXXXX</span></td></label> 
-  </tr><br>
- </table>
- <input type="submit" value="Saglabāt iezīmēto" id="save"> <br>
-</form>
-<script>
-function myFunction() {
-  var x = document.getElementById("myText").value;
-  document.getElementById("demo").innerHTML = x;
-}
-</script>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Adreses meklētājs</title>
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/script.js"></script> 
+	</head>
+	<body>
+		<input type="text" id="info" placeholder="Ievadiet adresi...">
+		<input type="button" class="submit" value="Meklēt" onclick="info()">
+		<hr>
+		<br>
+		<table>
+			<tr>
+				<td>
+					<input type="radio" name="radio" value="address" checked>
+					<label>Adrese:</label> 
+				</td>
+				<td>
+					<span id="address">XXXXXXXXXXX</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="radio" name="radio" value="adr_code">
+					<label>Adreses kods:</label> 
+				</td>
+				<td>
+					<span id="adr_code">XXXXXXXXXXX</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="radio" name="radio" value="gps">
+					<label>GPS koordinātes:</label>
+				</td>
+				<td>
+					<span id="gps">XXXXXXXXXXX</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="radio" name="radio" value="obj">
+					<label>Objekts/objekta daļa:</label> 
+				</td>
+				<td>
+					<span id="obj">XXXXXXXXXXX</span>
+				</td>
+			</tr>
+			<br>
+		</table>
+		<input type="button" class="save" value="Saglabāt iezīmēto" id="save" onclick="save()">
+		<input type="button" class="save" value="Kopēt iezīmēto" id="copy" onclick="copy()">
+	</body>
 </html>
