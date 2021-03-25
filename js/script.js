@@ -9,15 +9,23 @@ function download(filename, text) {
 }
 function info() {
 	let x = document.getElementById("info").value;
-	document.getElementById("address").innerHTML = x;
+	document.getElementById("address").value = x;
 }
 function save() {
-	download("download.txt", check())
+	txt=check();
+	download("download.txt", `${txt}:${document.getElementById(txt).value}\n`)
+}
+function copy() {
+	txt=check();
+	let copyText=document.getElementById(txt);
+	copyText.select();
+	copyText.setSelectionRange(0, 99999)
+	document.execCommand("copy");
+	alert("Nokopēts teksts: " + copyText.value);
 }
 function check() {
-	let txt = "with: ";
+	let txt = "";
 	let list = document.getElementsByName('radio');
-	alert(list.length);// nezkapēc nestrādā
 	for(var i=0;i<list.length;i++){
 		if(list[i].type=='radio' && list[i].checked){
 			txt+=list[i].value;

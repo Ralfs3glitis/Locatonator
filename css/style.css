@@ -69,3 +69,7 @@ th, td {
   text-align: left;
   font-size:17px;
 }
+.readonly{/*nestrada*/
+  border: 0px none black;
+  border-style: none;
+}
